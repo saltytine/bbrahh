@@ -8,6 +8,6 @@
     "clipboardWrite"
   ],
   "background": {
-    "scripts": ["content.js, background.js"]
+    "scripts": ["background.js"]
   }
 }
