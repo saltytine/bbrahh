@@ -2,12 +2,12 @@
   "manifest_version": 2,
   "name": "Number Calculator",
   "description": "Calculates the square root of the product of three numbers divided by 3.5",
-  "version": "1.0",
+  "version": "1.7",
   "permissions": [
     "contextMenus",
     "clipboardWrite"
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["content.js, background.js"]
   }
 }
