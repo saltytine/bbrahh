@@ -1,14 +1,13 @@
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.action === 'copyResultToClipboard') {
-    const resultString = request.data;
-
-    // Copy result to clipboard
-    navigator.clipboard.writeText(resultString)
-     .then(() => {
-        console.log("Result copied to clipboard:", resultString);
-      })
-     .catch((error) => {
-        console.error("Unable to copy result to clipboard:", error);
-      });
-  }
+chrome.contextMenus.create({
+  title: "Calculate: sqrt(%s)",
+  contexts: ["selection"],
+  onclick: (info) => {
+    const numbers = info.selectionText.match(/\d+/g).map(Number);
+    if (numbers.length === 3) {
+      const result = Math.sqrt(numbers.reduce((product, num) => product * num, 1) / 3.5);
+      alert(`Result: ${result}`);
+    } else {
+      alert("Please select exactly three numbers separated by commas.");
+    }
+  },
 });
